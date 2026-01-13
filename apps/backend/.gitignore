@@ -1,45 +1,38 @@
-HELP.md
+# env
 .env
-.gradle
-build/classes
-build/generated
-build/reports
-build/resources
-build/test-results
-build/tmp
-build/resolvedMainClassName
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+
+# Gradle
+.gradle/
 build/
 
-### STS ###
-.apt_generated
+# Spring / logs (필요 시)
+# logs/
+# *.log
+
+### IDEs ###
+# STS / Eclipse
+.apt_generated/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-ca
+.sts4-ca/
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### IntelliJ IDEA ###
-.idea
+# IntelliJ
+.idea/
 *.iws
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
-### VS Code ###
+# VS Code
 .vscode/
