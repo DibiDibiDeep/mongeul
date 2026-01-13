@@ -1,0 +1,42 @@
+### Variables
+@host = http://localhost:8080
+@contentType = application/json
+
+### Get all memos
+GET {{host}}/api/memos
+Accept: {{contentType}}
+
+### Get memo by ID
+GET {{host}}/api/memos/2
+Accept: {{contentType}}
+
+### Get memos by date
+GET {{host}}/api/memos/date/2024-03-15
+Accept: {{contentType}}
+
+### Create a new memo
+POST {{host}}/api/memos
+Content-Type: {{contentType}}
+
+{
+  "userId": 1,
+  "todayId": 1,
+  "content": "This is a test memo.",
+  "date": "2024-09-08T10:00:00",
+  "sendToML": true
+}
+
+### Update an existing memo
+PUT {{host}}/api/memos/1
+Content-Type: {{contentType}}
+
+{
+  "userId": 1,
+  "todayId": 1,
+  "fairyTaleId": 1,
+  "date": "2024-09-08T11:00:00",
+  "content": "This is an updated test memo."
+}
+
+### Delete a memo
+DELETE {{host}}/api/memos/1

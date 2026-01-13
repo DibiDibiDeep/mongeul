@@ -1,0 +1,84 @@
+# 모든 CalendarPhotoInf 레코드 조회
+GET http://localhost:8080/api/calendar-photo-inf
+Accept: application/json
+
+###
+
+# 추론 결과 저장 및 처리
+POST http://localhost:8080/api/calendar-photo-inf/1
+Content-Type: application/json
+
+{
+  "month": "04",
+  "year": null,
+  "events": [
+    {
+      "date": "05",
+      "activities": [
+        {
+          "name": "식목일 행사",
+          "start_time": null,
+          "end_time": null,
+          "location": "원내",
+          "target": "전체",
+          "information": "식목일 행사",
+          "notes": null
+        },
+        {
+          "name": "지진대피훈련",
+          "start_time": "09:50:00",
+          "end_time": "10:00:00",
+          "location": "원내",
+          "target": "전체",
+          "information": "지진대피훈련",
+          "notes": "9시30분 등원시간을 지켜주세요."
+        }
+      ]
+    },
+    {
+      "date": "06",
+      "activities": [
+        {
+          "name": "동지 후 105일째 되는 날",
+          "start_time": null,
+          "end_time": null,
+          "location": "원내",
+          "target": "전체",
+          "information": "동지 후 105일째 되는 날",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "date": "19",
+      "activities": [
+        {
+          "name": "생일잔치",
+          "start_time": "10:00:00",
+          "end_time": "11:00:00",
+          "location": "원내",
+          "target": "전체",
+          "information": "내가 태어났어요!(생일잔치)",
+          "notes": "많이 축하해주세요."
+        }
+      ]
+    },
+    {
+      "date": "26",
+      "activities": [
+        {
+          "name": "정기 소방안전교육 및 대피훈련",
+          "start_time": "09:50:00",
+          "end_time": "10:00:00",
+          "location": "원내",
+          "target": "전체",
+          "information": "정기 소방안전교육 및 대피훈련",
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "etc": "4월 10일부터 학부모 개별상담이 진행됩니다. 상담 날짜와 시간은 반별로 담임선생님과 의논하여 조율합니다.\n\n특별활동비 안내:\n체육: 만2~5세(풀잎/들꽃/푸른하늘) 13,000원\n음악: 만2~5세(풀잎/들꽃/푸른하늘) 14,000원\n영어: 만3~5세(들꽃/푸른하늘) 38,700원\n\n야간연장 및 토요보육은 사전 신청이 필요합니다.",
+  "user_id": 5,
+  "baby_id": 5
+}

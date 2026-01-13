@@ -1,0 +1,88 @@
+spring:
+  security:
+    user:
+      name: ${SPRING_SECURITY_ID}
+      password: ${SPRING_SECURITY_PWD}
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            redirect-uri: ${GOOGLE_REDIRECT_URI}
+            scope:
+              - email
+              - profile
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PWD}
+    driver-class-name: ${DRIVER_NAME}
+  hikari:
+    maximum-pool-size: 10
+    minimum-idle: 5
+    idle-timeout: 600000
+    max-lifetime: 3600000
+    connection-timeout: 30000
+  sql:
+#    init:
+#      mode: always
+#      schema-locations: classpath:init.sql
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  config:
+    import: optional:file:.env[.properties]
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 60000
+
+
+ml:
+  service:
+    url: ${ML_SERVICE_URL:http://192.168.0.227:8000}
+  app:
+    url: ${ML_APP_URL:http://localhost:8080}
+
+front:
+  url: ${FRONT_URL:http://localhost:3000}
+
+aws:
+  accessKeyId: ${AWS_ACCESS_KEY_ID}
+  secretKey: ${AWS_SECRET_KEY}
+  region: ${AWS_REGION}
+  s3:
+    bucket: ${AWS_S3_BUCKET}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    root: WARN
+    com.example.finalproj: INFO
+    com.example.finalproj.domain.user.controller: DEBUG
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}
+  refresh-token:
+    expiration: 604800000  # 7일 (밀리초 단위)
+
+google:
+  client:
+    id: ${GOOGLE_CLIENT_ID}

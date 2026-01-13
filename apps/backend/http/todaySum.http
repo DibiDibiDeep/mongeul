@@ -1,0 +1,40 @@
+### Variables
+@baseUrl = http://localhost:8080/api/today-sum
+@contentType = application/json
+
+### Get all TodaySums
+GET {{baseUrl}}
+
+### Get TodaySum by ID
+GET {{baseUrl}}/1
+
+### Create new TodaySum
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "userId": 7,
+  "babyId": 22,
+  "content": "2024년 10월 8일\n\n오늘 롯데월드에 다녀왔어요! 아이와 함께 바이킹도 타고 자이로 드롭도 탔는데, 아이가 정말 신나 했답니다. 그 모습이 너무 귀여워서 계속 보고 싶었어요. 아이의 웃음소리가 아직도 제 귀에 맴돌고, 그 순간이 정말 행복했어요. 이렇게 함께하는 시간이 소중한 것 같아요. 앞으로도 이런 즐거운 추억 많이 만들고 싶어요!",
+  "date": "2024-10-08"
+}
+
+### Update TodaySum
+PUT {{baseUrl}}/1
+Content-Type: {{contentType}}
+
+{
+  "userId": 1,
+  "fairyTaleId": 1,
+  "content": "오늘의 요약 수정: 아기가 처음으로 크게 웃었어요.",
+  "startDate": "2024-03-20T00:00:00",
+  "endDate": "2024-03-20T23:59:59",
+  "generatedDate": "2024-03-20T22:00:00",
+  "revisionDate": "2024-03-21T10:00:00"
+}
+
+### Delete TodaySum
+DELETE {{baseUrl}}/1
+
+### Get TodaySums by Date Range
+GET {{baseUrl}}/date-range?startDate=2024-03-01T00:00:00&endDate=2024-03-31T23:59:59

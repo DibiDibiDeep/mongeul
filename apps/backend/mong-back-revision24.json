@@ -1,0 +1,119 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:992382489739:task-definition/mong-back:24",
+    "containerDefinitions": [
+        {
+            "name": "backend-container",
+            "image": "992382489739.dkr.ecr.ap-northeast-2.amazonaws.com/mongeul-mongeul/backend:5cfe08daae938ce93c71a20423a936f5526cf580",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "backend-container-8080-tcp",
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "SPRING_DATASOURCE_USERNAME",
+                    "value": "root"
+                },
+                {
+                    "name": "SPRING_DATASOURCE_URL",
+                    "value": "jdbc:mysql://mongeul-db.c54cmc8iwsvi.ap-northeast-2.rds.amazonaws.com:3306/mongeul"
+                },
+                {
+                    "name": "SPRING_DATASOURCE_PASSWORD",
+                    "value": "qwer1234"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/mong-back",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:8080/health || exit 1"
+                ],
+                "interval": 30,
+                "timeout": 60,
+                "retries": 3
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "mong-back",
+    "taskRoleArn": "arn:aws:iam::992382489739:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::992382489739:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 24,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.container-health-check"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-09-09T01:08:05.853Z",
+    "registeredBy": "arn:aws:iam::992382489739:user/eunseong",
+    "tags": []
+}

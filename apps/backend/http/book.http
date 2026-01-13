@@ -1,0 +1,31 @@
+### Variables
+@baseUrl = http://localhost:8080/api/books
+@contentType = application/json
+
+### Create new Book (using AlimInf_Id)
+POST {{baseUrl}}/generate_fairytale/128
+Content-Type: {{contentType}}
+
+### Get all Books
+GET {{baseUrl}}
+
+### Get Book by bookId
+GET {{baseUrl}}/18
+
+### Get Books by userId
+GET {{baseUrl}}/user/1
+
+### Update Book by bookId
+PUT {{baseUrl}}/15
+Content-Type: {{contentType}}
+
+{
+  "title": "박유리",
+  "coverPath": "/covers/updated_cover.png"
+}
+
+### Delete Book by bookId
+DELETE {{baseUrl}}/70
+
+### Get Books by userId and babyId
+GET {{baseUrl}}/user/8/baby/33

@@ -1,0 +1,43 @@
+### Get all calendar photos
+GET http://localhost:8080/api/calendar-photos
+
+### Get a calendar photo by ID
+GET http://localhost:8080/api/calendar-photos/1
+
+### Get calendar photos by user ID
+GET http://localhost:8080/api/calendar-photos/user/1
+
+### Get calendar photos by baby ID
+GET http://localhost:8080/api/calendar-photos/baby/1
+
+### Get calendar photos by date
+GET http://localhost:8080/api/calendar-photos/date/2024-09-08T12:00:00
+
+### Get calendar photos by year and month
+GET http://localhost:8080/api/calendar-photos/year/2024/month/5
+
+### Create a new calendar photo
+POST http://localhost:8080/api/calendar-photos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="photo.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\Owner\Desktop\KakaoTalk_20240920_162122594.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="userId"
+
+3
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="babyId"
+
+2
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="date"
+
+2024-09-23T12:00:00
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Delete a calendar photo
+DELETE http://localhost:8080/api/calendar-photos/1

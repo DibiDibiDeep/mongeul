@@ -1,0 +1,33 @@
+### Get All Babies
+GET http://localhost:8080/api/baby
+
+### Get Baby by ID
+GET http://localhost:8080/api/baby/1
+
+### Get Babies by User ID
+GET http://localhost:8080/api/baby/user/1
+
+### Create Baby
+POST http://localhost:8080/api/baby
+Content-Type: application/json
+
+{
+  "babyName": "김대민",
+  "birth": "2023-01-08T10:30:00",
+  "gender": "male",
+  "userId": 1
+}
+
+### Update Baby
+PUT http://localhost:8080/api/baby/1
+Content-Type: application/json
+
+{
+  "babyName": "이예찬",
+  "birth": "2023-01-08T10:30:00",
+  "gender": "male",
+  "userId": 1
+}
+
+### Delete Baby
+DELETE http://localhost:8080/api/baby/1

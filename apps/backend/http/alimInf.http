@@ -1,0 +1,72 @@
+### Variables
+@baseUrl = http://localhost:8080/api/alim-inf
+@contentType = application/json
+
+### Get all AlimInfs
+GET {{baseUrl}}
+
+### Get AlimInf by ID
+GET {{baseUrl}}/1
+
+### Create new AlimInf
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "name": "지수",
+  "age": 3,
+  "gender": "Female",
+  "emotion": "즐거움과 신남",
+  "health": "활기차고 건강함",
+  "nutrition": "식사에 대한 정보는 제공되지 않음",
+  "activities": [
+    "아이스크림 가게 역할놀이",
+    "놀이터에서 놀기",
+    "붓으로 그림 그리기"
+  ],
+  "social": "친구들과 함께 즐겁게 놀며 웃음소리를 나누었음",
+  "special": "아이스크림 가게 역할을 진지하게 맡아 연기함",
+  "keywords": [
+    "아이스크림",
+    "역할놀이",
+    "놀이터",
+    "그림",
+    "웃음",
+    "잠자리"
+  ],
+  "diary": "오늘은 정말 행복한 하루였어! 😊  \n나는 놀이터에서 친구들과 신나게 뛰어놀았어. 🛝  \n햇살이 따뜻하고 기분이 좋았어. ☀️  \n나는 용감하게 다양한 놀이를 시도했어! 💪  \n그네도 타고, 미끄럼틀도 타고, 심지어 모래놀이도 했어. 🏖️  \n친구들이랑 함께 웃고 떠들면서 정말 즐거웠어. 😄  \n내가 이렇게 건강하고 체격이 좋다는 걸 느꼈어. 🏃‍♂️  \n오늘은 정말 자신감 넘치는 하루였어! 🌈  \n내일도 또 놀이터에 가고 싶어! 🎉",
+  "user_id": 1,
+  "baby_id": 1,
+  "alim_id" : 1,
+  "date" : "2024-03-21 11:00:00",
+  "role" : "child"
+}
+
+### Update AlimInf
+PUT {{baseUrl}}/1
+Content-Type: {{contentType}}
+
+{
+  "alimId": 1,
+  "userId": 1,
+  "babyId": 1,
+  "todayId": 1,
+  "name": "Updated Name",
+  "emotion": "Excited",
+  "health": "Excellent",
+  "nutrition": "Very good",
+  "activities": "Learning",
+  "special": "Said first word",
+  "keywords": "milestone,language",
+  "diary": "Today was an amazing day... ㅇㅅㅇ",
+  "date": "2024-03-21T11:00:00"
+}
+
+### Delete AlimInf
+DELETE {{baseUrl}}/1
+
+### Get AlimInfs by Date Range
+GET {{baseUrl}}/date-range?startDate=2024-03-01T00:00:00&endDate=2024-03-31T23:59:59
+
+###get by alimId
+GET {{baseUrl}}/alim-id/2

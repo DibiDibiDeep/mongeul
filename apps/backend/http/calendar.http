@@ -1,0 +1,44 @@
+###Get calendar all
+GET http://localhost:8080/api/calendars/all
+
+### Get calendar by ID
+GET http://localhost:8080/api/calendars/3
+
+### Get calendars by user ID
+GET http://localhost:8080/api/calendars/user/1
+
+### Get calendars by baby ID
+GET http://localhost:8080/api/calendars/baby/1
+
+### Get calendars by date
+GET http://localhost:8080/api/calendars?date=2024-09-08
+
+### Get calendars by date range
+GET http://localhost:8080/api/calendars/date-range?startDate=2024-09-08T00:00:00&endDate=2024-09-15T23:59:59
+
+### Create a new calendar
+POST http://localhost:8080/api/calendars
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "babyId": 1,
+  "eventDate": "2024-09-08T10:00:00",
+  "eventType": "Feeding",
+  "description": "Morning feeding"
+}
+
+### Update a calendar
+PUT http://localhost:8080/api/calendars/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "babyId": 1,
+  "eventDate": "2024-09-08T11:00:00",
+  "eventType": "Feeding",
+  "description": "Updated morning feeding"
+}
+
+### Delete a calendar
+DELETE http://localhost:8080/api/calendars/4
