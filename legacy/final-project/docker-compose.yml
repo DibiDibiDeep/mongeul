@@ -1,0 +1,64 @@
+# version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./Final-back
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    env_file:
+      - ./backend.env
+    networks:
+      - dev-network
+      - milvus
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: ./Final-front
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    env_file:
+      - ./frontend.env
+    networks:
+      - dev-network
+    depends_on:
+      - backend
+
+  ml:
+    build:
+      context: ./Final-ml
+    ports:
+      - "${ML_PORT:-8000}:8000"
+    env_file:
+      - ./ml.env
+    networks:
+      - dev-network
+      - milvus
+    depends_on:
+      - backend
+
+  redis: # container name
+    image: redis:6.2.6-alpine
+    ports: # 바인딩할 포트:내부 포트 (redis desktop maneager)
+      # - ${REDIS_BINDING_PORT:-6379}:${REDIS_PORT:-6379}
+      - "6389:6379"
+    env_file:
+      - ./backend.env
+    command: >
+      sh -c "apk add --no-cache gettext &&
+             envsubst < /usr/local/etc/redis/redis.config.template > /usr/local/etc/redis/redis.config &&
+             redis-server /usr/local/etc/redis/redis.config"
+    volumes:
+      - ${REDIS_DATA_PATH:-./redis-data}:/data
+      - ${REDIS_CONFIG_FILE:-./redis.config.template}:/usr/local/etc/redis/redis.config.template
+    restart: always
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
+  milvus:
+    external: true

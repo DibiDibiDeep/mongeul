@@ -1,0 +1,12 @@
+[submodule "Final-front"]
+	path = Final-front
+	url = https://github.com/DibiDibiDeep/Final-front.git
+        branch = develop
+[submodule "Final-back"]
+	path = Final-back
+	url = https://github.com/DibiDibiDeep/Final-back.git
+        branch = develop
+[submodule "Final-ml"]
+	path = Final-ml
+	url = https://github.com/DibiDibiDeep/Final-ml.git
+        branch = develop
