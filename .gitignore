@@ -1,1 +1,6 @@
+legacy/
 docs/legacy/
+
+.env.backend
+.env.frontend
+.env.ml
