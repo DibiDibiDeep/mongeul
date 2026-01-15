@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS mongeul;
+CREATE DATABASE IF NOT EXISTS mongeul_<dev|prod>;
 
-USE mongeul;
+USE mongeul_<dev|prod>;
 
 -- 1. users 테이블 생성
 CREATE TABLE IF NOT EXISTS users (
