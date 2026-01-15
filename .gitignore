@@ -1,6 +1,23 @@
 legacy/
 docs/legacy/
 
-.env.backend
-.env.frontend
-.env.ml
+# env
+apps/backend/.env.dev
+apps/backend/.env.prod
+apps/frontend/.env.dev
+apps/frontend/.env.prod
+apps/ml/.env.dev
+apps/ml/.env.prod
+
+# Nginx SSL 인증서 (보안상 중요!)
+infra/nginx/ssl/*.pem
+infra/nginx/ssl/*.key
+infra/nginx/ssl/*.crt
+
+# Let's Encrypt / Certbot
+infra/nginx/certbot/*
+!infra/nginx/certbot/.gitkeep
+
+# Docker volumes (데이터 디렉토리)
+infra/volumes/*
+!infra/volumes/**/.gitkeep
