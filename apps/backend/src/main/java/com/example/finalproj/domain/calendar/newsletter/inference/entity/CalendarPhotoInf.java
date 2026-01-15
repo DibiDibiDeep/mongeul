@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "calendar_photo_inf")
+@Table(name = "calendar_photo_infs")
 public class CalendarPhotoInf {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Entity
-@Table(name = "Alim_inf")
+@Table(name = "alim_infs")
 public class AlimInf {
 
     @Id

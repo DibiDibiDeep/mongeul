@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Today_sum")
+@Table(name = "today_sums")
 public class TodaySum {
 
     @Id
