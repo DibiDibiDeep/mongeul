@@ -52,7 +52,7 @@ spring:
 
 ml:
   service:
-    url: ${ML_SERVICE_URL:http://192.168.0.227:8000}
+    url: ${ML_SERVICE_URL:http://localhost:8000}
   app:
     url: ${ML_APP_URL:http://localhost:8080}
 
@@ -61,7 +61,7 @@ front:
 
 aws:
   accessKeyId: ${AWS_ACCESS_KEY_ID}
-  secretKey: ${AWS_SECRET_KEY}
+  secretKey: ${AWS_SECRET_ACCESS_KEY}
   region: ${AWS_REGION}
   s3:
     bucket: ${AWS_S3_BUCKET}
